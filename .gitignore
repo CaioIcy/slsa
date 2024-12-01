@@ -8,3 +8,11 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+public/
+dist/
+local/
+logs
+*.log
+.eslintcache
+*.swp
