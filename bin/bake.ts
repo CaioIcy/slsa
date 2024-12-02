@@ -104,6 +104,7 @@ async function main() {
 
     const slippiAccounts = dataNewAccounts.filter((slippiAccount) =>
       realPlayer.slippiConnectCodes?.includes(slippiAccount.connectCode.code)
+      && slippiAccount.rankedNetplayProfile?.continent === 'SOUTH_AMERICA'
     );
     for (const slippiAccount of slippiAccounts) {
       codeMap[slippiAccount.connectCode.code] = buildCodeMapEntry(slippiAccount, slug);
@@ -123,6 +124,10 @@ async function main() {
       (slippiAccount) => code === slippiAccount.connectCode.code
     );
     if (!slippiAccount) {
+      continue;
+    }
+
+    if(slippiAccount.rankedNetplayProfile?.continent !== 'SOUTH_AMERICA') {
       continue;
     }
 
