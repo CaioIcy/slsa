@@ -55,8 +55,9 @@ export const getPlayerDataThrottled = async (connectCode: string) => {
 };
 
 import codesJSON from '../data/codes.json' with { type: 'json' };
+// import codesJSON from '../data/dev-codes.json' with { type: 'json' };
 const getPlayerCodes = (): string[] => {
-  return codesJSON["all"];
+  return codesJSON["all"].filter(c => !(codesJSON["removed"] ?? []).includes(c));
 };
 
 const getSlippiPlayers = async (codes) => {
@@ -101,8 +102,10 @@ async function main() {
 
   const newPlayersJSON = JSON.stringify(rc);
 
-  const dir = true ? 'ranked' : 'unranked';
-  const filename = path.join('.', 'local', dir, `.${dir}-slippi.json`);
+  console.log("Invalid codes:", JSON.stringify(codes.filter(c => !rc.map(p => p.connectCode?.code).includes(c))));
+  console.log("Non-SA codes:", JSON.stringify(rc.filter(p => !['SOUTH_AMERICA', null].includes(p.rankedNetplayProfile?.continent)).map(p => p.connectCode?.code)));
+
+  const filename = path.join('.', 'local', 'ranked', `.ranked-slippi.json`);
   fs.writeFileSync(filename, newPlayersJSON);
   console.log(`Saved as [${filename}]`);
 

@@ -18,10 +18,9 @@ $ pnpm run build
 ### Misc
 
 ```bash
-$ bin/fetch-slippi.ts && bin/prebuild.ts && bin/bake.ts && pnpm run deploy
-
+$ bin/ci.sh
+$ cat <<< $(jq -c '.all |= sort | .removed |= sort' data/codes.json) > data/codes.json
 $ svgo -f assets/ranks/ -o src/lib/assets/img/ranks/
-
 $ brew install pngquant oxipng
 $ rm assets/stocks/*fs8.png
 $ rm src/lib/assets/img/stocks/*.png
@@ -30,6 +29,5 @@ $ echo $?
 $ oxipng -o max --strip safe --alpha assets/stocks/*-fs8.png
 $ mv assets/stocks/*-fs8.png src/lib/assets/img/stocks
 $ npx --yes convert-svg-to-png src/lib/assets/img/ranks/*.svg
-
 $ find -E src/lib/assets/img/stocks -type f -not -iregex '.*[A-Z]_DEFAULT-fs8.png' #-delete
 ```
