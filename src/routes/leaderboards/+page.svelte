@@ -245,7 +245,7 @@
           <th class="">PLAYER</th>
           <th class="">CHARACTERS</th>
           <th class="">RATING</th>
-          <th class="">SETS</th>
+          <th class="">W / L</th>
         </tr>
       </thead>
       <tbody>
@@ -259,11 +259,8 @@
             <td class=""><CellRating {data} {code} /></td>
             <td class=""
               ><CellSets
-                sets={Math.max(
-                  data.db.codeMap[code].account.rankedNetplayProfile.wins +
-                    data.db.codeMap[code].account.rankedNetplayProfile.losses,
-                  data.db.codeMap[code].account.rankedNetplayProfile.ratingUpdateCount
-                )}
+                wins={data.db.codeMap[code].account?.rankedNetplayProfile?.wins ?? 0}
+                losses={data.db.codeMap[code].account?.rankedNetplayProfile?.losses ?? 0}
               /></td
             >
           </tr>
