@@ -1,6 +1,13 @@
 #!/bin/bash
 set -euo pipefail
 
+# skip if not ranked day
+set +e
+npx vite-node --script bin/is-ranked-day.ts
+exit_code=$?
+[[ $exit_code == 42 ]] && exit 0
+set -e
+
 mkdir -p ./local/ranked/
 npx vite-node --script bin/fetch-slippi.ts
 
