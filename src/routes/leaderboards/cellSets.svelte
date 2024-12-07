@@ -4,10 +4,10 @@
 </script>
 
 <div>
-  <p class="text-lg font-semibold text-center text-primary-light/50">
-    <span class="font-extrabold text-green">{wins}</span>
+  <p class="text-lg font-medium text-center text-primary-light/50">
+    <span class="font-semibold text-green">{wins}</span>
     /
-    <span class="font-extrabold text-red">{losses}</span>
+    <span class="font-semibold text-red">{losses}</span>
   </p>
 </div>
 

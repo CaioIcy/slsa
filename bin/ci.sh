@@ -24,7 +24,9 @@ if [ "${CI}" = "true" ]; then
   git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
   npx gh-pages -d build -t true -u "github-actions-bot <support+actions@github.com>"
 
+  git config --global user.name "github-actions-bot"
+  git config --global user.email "support+actions@github.com"
   git add data/slippi*
-  git commit --author "github-actions-bot <support+actions@github.com>" -m "[bot] update slippi data"
+  git commit -m "[bot] update slippi data"
   git push origin main
 fi
