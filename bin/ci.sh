@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -eo pipefail
 
 # skip if not ranked day
 set +e
@@ -20,5 +20,11 @@ npx vite-node --script bin/bake.ts
 
 pnpm run build
 
-git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-npx gh-pages -d build -t true -u "github-actions-bot <support+actions@github.com>"
+if [ "${CI}" = "true" ]; then
+  git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+  npx gh-pages -d build -t true -u "github-actions-bot <support+actions@github.com>"
+
+  git add data/slippi*
+  git commit --author "github-actions-bot <support+actions@github.com>" -m "[bot] update slippi data"
+  git push origin main
+fi
