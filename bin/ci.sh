@@ -13,7 +13,7 @@ npx vite-node --script bin/fetch-slippi.ts
 
 # old prebuild.ts
 rm -f ./data/slippi-old.json
-cp -f ./data/slippi-new.json ./data/slippi-old.json
+git show $(git rev-list -n 1 --before="24 hours ago" HEAD):./data/slippi-new.json > ./data/slippi-old.json
 cp -f ./local/ranked/.ranked-slippi.json ./data/slippi-new.json
 
 npx vite-node --script bin/bake.ts
