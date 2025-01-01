@@ -30,11 +30,12 @@ function buildCodeMapEntry(slippiAccount, slug) {
     (newSlippiAccount) => slippiAccount.connectCode.code === newSlippiAccount.connectCode.code
   );
 
+  const isNew = oldSlippiAccount?.rankedNetplayProfile.continent === null;
   return {
     slug: slug,
     rank: newRankIndex + 1,
     diff: {
-      isNew: !oldSlippiAccount,
+      isNew: isNew,
       rank: oldRankIndex + 1 - (newRankIndex + 1),
       elo: oldSlippiAccount
         ? Math.floor(
