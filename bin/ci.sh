@@ -27,6 +27,8 @@ if [ "${CI}" = "true" ]; then
   git config --global user.name "github-actions-bot"
   git config --global user.email "support+actions@github.com"
   git add data/slippi*
-  git commit -m "[bot] update slippi data"
-  git push origin main
+  if ! git diff --staged --quiet; then
+    git commit -m "[bot] update slippi data"
+    git push origin main
+  fi
 fi
