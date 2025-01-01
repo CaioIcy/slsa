@@ -1796,7 +1796,7 @@ export const players: Array<Player> = [
     slug: 'tgj',
     tag: 'TheGreatJerk',
     countryCode: 'ar',
-    slippiConnectCodes: ['TGJ#635']
+    slippiConnectCodes: ['TGJ#635', 'TGJ#484']
   },
   {
     slug: 'miguelito',
@@ -2397,10 +2397,108 @@ export const players: Array<Player> = [
     slippiConnectCodes: ['NOTF#452']
   },
   {
+    slug: 'clowder',
+    tag: 'Clowder',
+    countryCode: 'ar',
+    slippiConnectCodes: ['TUPI#140', 'LOVE#323'],
+  },
+  {
+    slug: 'pumm',
+    countryCode: 'cl',
+    subregion: 'cl',
+    slippiConnectCodes: ['BLIP#762'],
+  },
+  {
+    slug: 'dannyssb',
+    countryCode: 'cl',
+    subregion: 'cl',
+    slippiConnectCodes: ['DSSB#658'],
+  },
+  {
+    slug: 'palfmito',
+    countryCode: 'cl',
+    subregion: 'cl',
+    slippiConnectCodes: ['PALF#606'],
+  },
+  {
+    slug: 'ccj',
+    countryCode: 'cl',
+    subregion: 'cl',
+    slippiConnectCodes: ['CCJ#802'],
+  },
+  {
+    slug: 'goginha',
+    countryCode: 'br',
+    subregion: 'br',
+    slippiConnectCodes: ['GOGI#728'],
+  },
+  {
+    slug: 'kungfukenny',
+    countryCode: 'cl',
+    subregion: 'cl',
+    slippiConnectCodes: ['JCAL#928'],
+  },
+  {
+    slug: 'julian',
+    countryCode: 'cl',
+    subregion: 'cl',
+    slippiConnectCodes: ['NOA#597'],
+  },
+  {
+    slug: 'gramamolhada',
+    countryCode: 'br',
+    subregion: 'br',
+    slippiConnectCodes: ['GRMA#749'],
+  },
+  {
+    slug: 'icaro',
+    countryCode: 'br',
+    subregion: 'br',
+    slippiConnectCodes: ['ICAR#547'],
+  },
+  {
+    slug: 'mapitaboi',
+    countryCode: 'cl',
+    subregion: 'cl',
+    slippiConnectCodes: ['ZZ#737'],
+  },
+  {
+    slug: 'foggy',
+    tag: 'FoggyBR',
+    countryCode: 'br',
+    subregion: 'br',
+    slippiConnectCodes: ['JGHF#489'],
+  },
+  {
+    slug: 'noir',
+    countryCode: 'co',
+    slippiConnectCodes: ['NOIR#214'],
+  },
+  {
+    slug: 'genocyber',
+    countryCode: 'ar',
+    slippiConnectCodes: ['KOFP#486'],
+  },
+  {
+    slug: 'guisante',
+    countryCode: 'ar',
+    slippiConnectCodes: ['GUIS#541'],
+  },
+  {
+    slug: 'cucayo',
+    countryCode: 'co',
+    slippiConnectCodes: ['CAYO#420'],
+  },
+  {
+    slug: 'bmo',
+    countryCode: 'ar',
+    slippiConnectCodes: ['BRUF#547'],
+  },
+  {
     slug: 'levedura',
     tag: 'Levedura',
     countryCode: 'br',
     subregion: 'br',
     slippiConnectCodes: ['LEVE#954']
-  }
+  },
 ];
