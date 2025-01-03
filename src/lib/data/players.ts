@@ -802,7 +802,8 @@ export const players: Array<Player> = [
     subregion: 'cl'
   },
   {
-    slug: '',
+    slug: 'pomf',
+    tag: 'pomf',
     slippiConnectCodes: ['POMF#250'],
     countryCode: 'ar'
   },
@@ -2276,8 +2277,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'zinok',
-    countryCode: 'cl',
-    subregion: 'cl',
+    countryCode: 'ar',
     slippiConnectCodes: ['ZNK#778', 'ZINO#196']
   },
   {
@@ -2479,6 +2479,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'genocyber',
+    tag: 'Genocyber',
     countryCode: 'ar',
     slippiConnectCodes: ['KOFP#486'],
   },
@@ -2604,7 +2605,7 @@ export const players: Array<Player> = [
     slug: 'drsnapback',
     tag: 'Dr. Snapback',
     countryCode: 'pe',
-    slippiConnectCodes: [],
+    slippiConnectCodes: ['CLAU#534'],
   },
   {
     slug: 'samir',
@@ -2617,5 +2618,33 @@ export const players: Array<Player> = [
     tag: 'LoR',
     countryCode: 'pe',
     slippiConnectCodes: [],
+  },
+  {
+    slug: 'yer',
+    tag: 'Yer12',
+    countryCode: 'ar',
+    slippiConnectCodes: ['YER#326'],
+  },
+  {
+    slug: 'totovf',
+    tag: 'totovf',
+    countryCode: 'ar',
+    slippiConnectCodes: ['TOTO#573'],
+  },
+  {
+    slug: 'projett',
+    tag: 'pr0jett',
+    countryCode: 'ar',
+    slippiConnectCodes: ['PRJE#118'],
+  },
+  {
+    slug: 'jordi',
+    countryCode: 'ar',
+    slippiConnectCodes: ['JDSB#873'],
+  },
+  {
+    slug: 'orios',
+    countryCode: 'ar',
+    slippiConnectCodes: ['BEBE#263'],
   },
 ];

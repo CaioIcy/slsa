@@ -47,39 +47,14 @@
   const SUBREGION_ALL = 0;
   const SUBREGION_BRAZIL = 1;
   const SUBREGION_CHILE = 2;
-  const SUBREGION_OTHER = 3;
+  const SUBREGION_ARGENTINA = 3;
+  const SUBREGION_OTHER = 4;
 
   let loaded = false;
   let selectedRegion = SUBREGION_ALL;
   function toggle(id: number): void {
     selectedRegion = id;
   }
-  const subRegionMap = {};
-
-  const shouldShowPlayer = (region, code) => {
-    // All
-    if (region === SUBREGION_ALL) {
-      return true;
-    }
-
-    // Brazil
-    const player = data.db.fGetPlayerByCode(code);
-    if (region === SUBREGION_BRAZIL && player) {
-      return player.subregion === 'br';
-    }
-
-    // Chile
-    if (region === SUBREGION_CHILE && player) {
-      return player.subregion === 'cl';
-    }
-
-    // Other
-    if (region === SUBREGION_OTHER) {
-      return !player || !['cl', 'br'].includes(player.subregion);
-    }
-
-    return false;
-  };
 
   // SLP launcher
   const MS_PER_DAY = 24 * 60 * 60 * 1000;
@@ -138,16 +113,22 @@
     slpCountdown = formatDuration(duration, { format, locale: shortEnLocale });
   };
 
+  const filterSubregion = (subregion) => {
+    return (code) => {
+      const player = data.db.fGetPlayerByCode(code);
+      return player?.subregion === subregion || (player?.countryCode === subregion && !player?.subregion)
+        data.db.fGetPlayerByCode(code)?.subregion === subregion;
+    };
+  };
+
+  const subRegionMap = {};
   onMount(async () => {
     subRegionMap[SUBREGION_ALL] = data.db.leaderboard;
-    subRegionMap[SUBREGION_BRAZIL] = data.db.leaderboard.filter(
-      (code) => data.db.fGetPlayerByCode(code)?.subregion === 'br'
-    );
-    subRegionMap[SUBREGION_CHILE] = data.db.leaderboard.filter(
-      (code) => data.db.fGetPlayerByCode(code)?.subregion === 'cl'
-    );
+    subRegionMap[SUBREGION_BRAZIL] = data.db.leaderboard.filter(filterSubregion('br'));
+    subRegionMap[SUBREGION_CHILE] = data.db.leaderboard.filter(filterSubregion('cl'));
+    subRegionMap[SUBREGION_ARGENTINA] = data.db.leaderboard.filter(filterSubregion('ar'));
     subRegionMap[SUBREGION_OTHER] = data.db.leaderboard.filter(
-      (code) => !['br', 'cl'].includes(data.db.fGetPlayerByCode(code)?.subregion)
+      (code) => !subRegionMap[SUBREGION_BRAZIL].includes(code) && !subRegionMap[SUBREGION_CHILE].includes(code) && !subRegionMap[SUBREGION_ARGENTINA].includes(code)
     );
 
     checkTime();
@@ -161,12 +142,18 @@
 </script>
 
 <section class="grid grid-cols-1 w-full min-w-[1024px] max-w-[1024px] my-8">
-  <h1 class="text-4xl font-medium">Leaderboards</h1>
+  <div class="flex justify-between items-center w-inherit">
+    <h1 class="text-4xl font-medium">Leaderboards</h1>
 
-  <div class="flex justify-between items-end w-inherit my-2 h-[48px]">
+    <div class="basis-1/5 text-right">
+      <p class="text-primary-light">Updated {loaded ? timeSince(data.db.timestamp) : 'long'} ago</p>
+    </div>
+  </div>
+
+  <div class="flex justify-between items-end w-inherit mb-2 h-[48px]">
     <!-- ToggleButtonGroup -->
     <div
-      class="flex flex-row items-center box-content w-64 border-2 border-primary-light text-primary-light rounded-md h-[38px] basis-1/4"
+      class="flex flex-row items-center box-content border-2 border-primary-light text-primary-light rounded-md h-[38px] basis-2/5"
     >
       <button
         class="grow h-full font-semibold border-r"
@@ -193,6 +180,14 @@
       </button>
 
       <button
+        class="grow h-full font-semibold border-r"
+        on:click={() => toggle(SUBREGION_ARGENTINA)}
+        class:btn-group-active={selectedRegion === SUBREGION_ARGENTINA}
+      >
+        Argentina
+      </button>
+
+      <button
         class="grow h-full font-semibold"
         on:click={() => toggle(SUBREGION_OTHER)}
         class:btn-group-active={selectedRegion === SUBREGION_OTHER}
@@ -201,8 +196,9 @@
       </button>
     </div>
 
+
     <!-- Ranked Day Countdown -->
-    <div class="flex items-center justify-start mx-32 bg-primary-main px-8 basis-1/3 rounded">
+    <div class="flex items-center justify-start bg-primary-main px-8 basis-1/3 rounded">
       {#if loaded}
         <div class="h-full">
           {#if slpIsFullAccess}
@@ -229,10 +225,6 @@
           </p>
         </div>
       {/if}
-    </div>
-
-    <div class="basis-1/5 text-right">
-      <p class="text-primary-light">Updated {loaded ? timeSince(data.db.timestamp) : 'long'} ago</p>
     </div>
   </div>
 
