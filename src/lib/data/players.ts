@@ -1260,7 +1260,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'piglet',
-    tag: 'pigletrng',
+    tag: 'Piglet',
     countryCode: 'pe',
     slippiConnectCodes: ['PIGL#517']
   },
@@ -1879,6 +1879,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'mute',
+    tag: 'MuteCitizen',
     countryCode: 'pe',
     slippiConnectCodes: ['MTCZ#289']
   },
@@ -1894,6 +1895,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'die',
+    tag: 'Die222',
     countryCode: 'pe',
     slippiConnectCodes: ['DIE#222']
   },
@@ -1909,6 +1911,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'dobby',
+    tag: 'Dobby',
     countryCode: 'pe',
     slippiConnectCodes: ['DOBZ#870']
   },
@@ -2219,7 +2222,7 @@ export const players: Array<Player> = [
     slippiConnectCodes: ['PATO#292']
   },
   {
-    slug: 'yomepiru',
+    slug: 'yome',
     tag: 'Yome',
     countryCode: 'pe',
     slippiConnectCodes: ['YOME#483']
@@ -2500,5 +2503,119 @@ export const players: Array<Player> = [
     countryCode: 'br',
     subregion: 'br',
     slippiConnectCodes: ['LEVE#954']
+  },
+  {
+    slug: 'pooper',
+    tag: 'PooperPants',
+    countryCode: 'pe',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'aju',
+    tag: 'Aju',
+    countryCode: 'pe',
+    slippiConnectCodes: ['AJU#490'],
+  },
+  {
+    slug: 'josele',
+    tag: 'Josele',
+    countryCode: 'pe',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'paracetakong',
+    tag: 'Paracetakong',
+    countryCode: 'pe',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'jlp',
+    tag: 'JLP',
+    countryCode: 'pe',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'hawlee',
+    tag: 'Hawlee',
+    countryCode: 'pe',
+    slippiConnectCodes: ['HAWL#594'],
+  },
+  {
+    slug: 'habbo',
+    tag: 'habbo roleplay',
+    countryCode: 'pe',
+    slippiConnectCodes: ['HABB#0'],
+  },
+  {
+    slug: 'xboss',
+    tag: 'XBOSS',
+    countryCode: 'pe',
+    slippiConnectCodes: ['XBOS#199'],
+  },
+  {
+    slug: 'dragmire',
+    tag: 'Dragmire DICK',
+    countryCode: 'pe',
+    slippiConnectCodes: ['DICK#714'],
+  },
+  {
+    slug: 'nazgul',
+    tag: 'Nazgul',
+    countryCode: 'pe',
+    slippiConnectCodes: ['NAZ#458'],
+  },
+  {
+    slug: 'lucio',
+    tag: 'Lucio',
+    countryCode: 'pe',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'joa',
+    tag: 'Joa',
+    countryCode: 'pe',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'jamil',
+    tag: 'Jamil',
+    countryCode: 'pe',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'tefo',
+    tag: 'Tefo',
+    countryCode: 'pe',
+    slippiConnectCodes: ['TEFO#230'],
+  },
+  {
+    slug: 'marakas',
+    tag: 'MaraKas',
+    countryCode: 'pe',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'sm2k',
+    tag: 'SM2K',
+    countryCode: 'pe',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'drsnapback',
+    tag: 'Dr. Snapback',
+    countryCode: 'pe',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'samir',
+    tag: 'Samir Complejo',
+    countryCode: 'pe',
+    slippiConnectCodes: ['SAM#350'],
+  },
+  {
+    slug: 'lor',
+    tag: 'LoR',
+    countryCode: 'pe',
+    slippiConnectCodes: [],
   },
 ];

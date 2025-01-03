@@ -53,7 +53,7 @@ const YOSHI = 'YOSHI';
 const YOUNG_LINK = 'YOUNG_LINK';
 const ZELDA = 'ZELDA';
 
-type PowerRankingTag = 'SA' | 'CL' | 'BR' | 'VE';
+type PowerRankingTag = 'SA' | 'CL' | 'BR' | 'VE' | 'PE';
 
 export interface PowerRankingPlayer {
   rank: number;
@@ -1544,7 +1544,144 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
         characters: [MARTH]
       }
     ]
-  }
+  },
+  {
+    year: 2024,
+    title: 'Peru',
+    tag: 'PE',
+    players: [
+      {
+        rank: 1,
+        player: 'amida',
+        characters: [JIGGLYPUFF],
+      },
+      {
+        rank: 2,
+        player: 'mute',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 3,
+        player: 'die',
+        characters: [MARTH],
+      },
+      {
+        rank: 4,
+        player: 'oldnova',
+        characters: [CAPTAIN_FALCON, SHEIK],
+      },
+      {
+        rank: 5,
+        player: 'piglet',
+        characters: [FOX, FALCO],
+      },
+      {
+        rank: 6,
+        player: 'pooper',
+        characters: [MARTH, DONKEY_KONG],
+      },
+      {
+        rank: 7,
+        player: 'aju',
+        characters: [FOX],
+      },
+      {
+        rank: 8,
+        player: 'yome',
+        characters: [FALCO],
+      },
+      {
+        rank: 9,
+        player: 'josele',
+        characters: [FOX],
+      },
+      {
+        rank: 10,
+        player: 'paracetakong',
+        characters: [FALCO],
+      },
+      {
+        rank: 11,
+        player: 'jlp',
+        characters: [SHEIK],
+      },
+      {
+        rank: 12,
+        player: 'hawlee',
+        characters: [FOX],
+      },
+      {
+        rank: 13,
+        player: 'habbo',
+        characters: [MARIO, PIKACHU],
+      },
+      {
+        rank: 14,
+        player: 'dobby',
+        characters: [SHEIK],
+      },
+      {
+        rank: 15,
+        player: 'xboss',
+        characters: [LUIGI],
+      },
+      {
+        rank: 16,
+        player: 'dragmire',
+        characters: [FALCO, GANONDORF],
+      },
+      {
+        rank: 17,
+        player: 'nazgul',
+        characters: [FALCO],
+      },
+      {
+        rank: 18,
+        player: 'lucio',
+        characters: [YOSHI],
+      },
+      {
+        rank: 19,
+        player: 'joa',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 20,
+        player: 'jamil',
+        characters: [SHEIK],
+      },
+      {
+        rank: 21,
+        player: 'tefo',
+        characters: [PEACH, GAME_AND_WATCH],
+      },
+      {
+        rank: 22,
+        player: 'marakas',
+        characters: [LUIGI],
+      },
+      {
+        rank: 23,
+        player: 'sm2k',
+        characters: [FALCO],
+      },
+      {
+        rank: 24,
+        player: 'drsnapback',
+        characters: [LUIGI],
+      },
+      {
+        rank: 25,
+        player: 'samir',
+        characters: [DR_MARIO, MARIO],
+      },
+      {
+        rank: 26,
+        player: 'lor',
+        characters: [LINK],
+      },
+    ],
+  },
 ];
 
 export const getSortedRankings = (): Readonly<Array<PowerRanking>> => {
