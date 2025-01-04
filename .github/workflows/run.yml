@@ -1,6 +1,7 @@
 on:
   schedule:
     - cron: "48 */2 * * *"
+  workflow_dispatch:
   # push:
   #   branches:
   #     - 'main'
