@@ -13,7 +13,7 @@ npx vite-node --script bin/fetch-slippi.ts
 
 # old prebuild.ts
 rm -f ./data/slippi-old.json
-git show $(git rev-list -n 1 --before="24 hours ago" HEAD):./data/slippi-new.json > ./data/slippi-old.json
+git show $(git rev-list -n 1 --before="25 hours ago" HEAD):./data/slippi-new.json > ./data/slippi-old.json
 cp -f ./local/ranked/.ranked-slippi.json ./data/slippi-new.json
 
 npx vite-node --script bin/bake.ts
@@ -22,7 +22,7 @@ pnpm run build
 
 if [ "${CI}" = "true" ]; then
   git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-  npx gh-pages -d build -t true -u "github-actions-bot <support+actions@github.com>"
+  pnpm run ci:deploy
 
   git config --global user.name "github-actions-bot"
   git config --global user.email "support+actions@github.com"
