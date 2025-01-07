@@ -33,8 +33,6 @@
       Celebrando todos os jogadores mais ativos da nossa comunidade.
     </p>
 
-    <p class="text-md">Tiers não ordenadas.</p>
-
     <div class="flex justify-center items-center mt-4">
       <Flag country="br" />
       <p class="px-2 text-primary-light text-center">Junho/2024</p>

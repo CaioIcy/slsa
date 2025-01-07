@@ -2376,7 +2376,7 @@ export const players: Array<Player> = [
     tag: 'Jokerinno',
     countryCode: 'br',
     subregion: 'br',
-    slippiConnectCodes: ['JOKR#???'],
+    slippiConnectCodes: ['JOKE#720'],
     sgg: ['b359efe3']
   },
   {
