@@ -576,6 +576,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'gunz',
+    tag: 'Guunz',
     slippiConnectCodes: ['GNZ#143'],
     countryCode: 'ar'
   },
@@ -655,7 +656,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'mazu',
-    tag: 'Mazu',
+    tag: 'mazu',
     slippiConnectCodes: ['MAZU#655'],
     countryCode: 'ar'
   },
@@ -993,7 +994,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'dalar',
-    tag: 'Dalar',
+    tag: 'dalar',
     countryCode: 'ar',
     slippiConnectCodes: ['DALA#476']
   },
@@ -1170,6 +1171,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'kidcarri',
+    tag: 'GamingWacho',
     countryCode: 'ar',
     slippiConnectCodes: ['SLMX#739']
   },
@@ -2406,12 +2408,13 @@ export const players: Array<Player> = [
   },
   {
     slug: 'orios',
+    tag: 'Ohh Sugoi',
     countryCode: 'ar',
     slippiConnectCodes: ['BEBE#263'],
   },
   {
     slug: 'kamuri',
-    tag: 'Kamuri',
+    tag: 'kamuri',
     countryCode: 'ar',
     slippiConnectCodes: ['KMRI#747'],
   },

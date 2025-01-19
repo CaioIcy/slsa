@@ -53,7 +53,7 @@ const YOSHI = 'YOSHI';
 const YOUNG_LINK = 'YOUNG_LINK';
 const ZELDA = 'ZELDA';
 
-type PowerRankingTag = 'SA' | 'CL' | 'BR' | 'VE' | 'PE';
+type PowerRankingTag = 'SA' | 'CL' | 'BR' | 'VE' | 'PE' | 'AR';
 
 export interface PowerRankingPlayer {
   rank: number;
@@ -1689,6 +1689,69 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
         rank: 26,
         player: 'lor',
         characters: [LINK],
+      },
+    ],
+  },
+  {
+    year: 2024,
+    title: 'Argentina',
+    tag: 'AR',
+    players: [
+      {
+        rank: 1,
+        player: 'clowder',
+        characters: [FOX],
+      },
+      {
+        rank: 2,
+        player: 'pomf',
+        characters: [FALCO],
+      },
+      {
+        rank: 3,
+        player: 'papyrus',
+        characters: [MARTH],
+      },
+      {
+        rank: 4,
+        player: 'mogartio',
+        characters: [MARTH],
+      },
+      {
+        rank: 5,
+        player: 'mazu',
+        characters: [FOX],
+      },
+      {
+        rank: 6,
+        player: 'dalar',
+        characters: [FOX],
+      },
+      {
+        rank: 7,
+        player: 'kamuri',
+        characters: [PEACH],
+      },
+      {
+        rank: 8,
+        player: 'tgj',
+        characters: [ICE_CLIMBERS],
+      },
+      {
+        rank: 9,
+        player: 'orios',
+        characters: [FALCO],
+      },
+      {
+        rank: 10,
+        player: 'kidcarri',
+        characters: [GAME_AND_WATCH],
+      },
+      {
+        rank: 100,
+        player: 'gunz',
+        characters: [ICE_CLIMBERS],
+        hm: true,
       },
     ],
   },
