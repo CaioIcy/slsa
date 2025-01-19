@@ -19,7 +19,7 @@ $ pnpm run build
 
 ```bash
 $ bin/ci.sh
-$ cat <<< $(jq -c '.all |= sort | .removed |= sort' data/codes.json) > data/codes.json
+$ cat <<< $(jq -c '.all |= sort | .all |= unique | .removed |= sort | .removed |= unique' data/codes.json) > data/codes.json
 $ svgo -f assets/ranks/ -o src/lib/assets/img/ranks/
 $ brew install pngquant oxipng
 $ rm assets/stocks/*fs8.png

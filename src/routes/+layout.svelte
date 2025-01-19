@@ -19,11 +19,12 @@
 
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-md lg:flex-grow">
-        <a href={`${base}/leaderboards`} class="block lg:inline-block lg:mt-0 mr-4">
+        <a href={`${base}/leaderboards/`} class="block lg:inline-block lg:mt-0 mr-4">
           Leaderboards
         </a>
-        <a href={`${base}/rankings`} class="block lg:inline-block lg:mt-0 mr-4"> Rankings </a>
-        <a href={`${base}/stats`} class="block lg:inline-block lg:mt-0 mr-4"> Stats </a>
+        <a href={`${base}/rankings/`} class="block lg:inline-block lg:mt-0 mr-4"> Rankings </a>
+        <a href={`${base}/stats/`} class="block lg:inline-block lg:mt-0 mr-4"> Stats </a>
+        <!-- <a href={`${base}/who/`} class="block lg:inline-block lg:mt-0 mr-4"> Who </a> -->
       </div>
     </div>
   </nav>

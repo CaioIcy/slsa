@@ -71,6 +71,16 @@ interface PowerRanking {
   players: Array<PowerRankingPlayer>;
 }
 
+interface RankingResult {
+  year: number;
+  title: string;
+  flag: string;
+  tag: PowerRankingTag;
+  player: string;
+  rank: string;
+  characters?: MeleeCharacterKey[];
+}
+
 export const RANKINGS: Readonly<Array<PowerRanking>> = [
   {
     year: 2020,
@@ -1682,93 +1692,93 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
       },
     ],
   },
-  {
-    year: 2024,
-    title: 'Brazil',
-    tag: 'BR',
-    players: [
-      {
-        rank: 1,
-        player: 'caioicy',
-        characters: [FOX],
-      },
-      {
-        rank: 2,
-        player: 'aleixo',
-        characters: [PEACH],
-      },
-      {
-        rank: 3,
-        player: 'wario',
-        characters: [CAPTAIN_FALCON],
-      },
-      {
-        rank: 4,
-        player: 'zen',
-        characters: [ICE_CLIMBERS],
-      },
-      {
-        rank: 5,
-        player: 'vlory',
-        characters: [FALCO],
-      },
-      {
-        rank: 6,
-        player: 'mcs',
-        characters: [SHEIK],
-      },
-      {
-        rank: 7,
-        player: 'not',
-        characters: [FOX],
-      },
-      {
-        rank: 8,
-        player: 'consi',
-        characters: [FOX],
-      },
-      {
-        rank: 9,
-        player: 'joker',
-        characters: [FALCO, FOX],
-      },
-      {
-        rank: 10,
-        player: 'gio',
-        characters: [MARTH],
-      },
-      {
-        rank: 200,
-        player: 'aisen',
-        characters: [FOX, MARTH],
-        hm: true,
-      },
-      {
-        rank: 190,
-        player: 'leso',
-        characters: [CAPTAIN_FALCON],
-        hm: true,
-      },
-      {
-        rank: 180,
-        player: 'liar',
-        characters: [FALCO],
-        hm: true,
-      },
-      {
-        rank: 170,
-        player: 'phonix',
-        characters: [SHEIK, JIGGLYPUFF],
-        hm: true,
-      },
-      {
-        rank: 160,
-        player: 'trz',
-        characters: [CAPTAIN_FALCON],
-        hm: true,
-      },
-    ],
-  },
+  // {
+  //   year: 2024,
+  //   title: 'Brazil',
+  //   tag: 'BR',
+  //   players: [
+  //     {
+  //       rank: 1,
+  //       player: 'caioicy',
+  //       characters: [FOX],
+  //     },
+  //     {
+  //       rank: 2,
+  //       player: 'aleixo',
+  //       characters: [PEACH],
+  //     },
+  //     {
+  //       rank: 3,
+  //       player: 'wario',
+  //       characters: [CAPTAIN_FALCON],
+  //     },
+  //     {
+  //       rank: 4,
+  //       player: 'zen',
+  //       characters: [ICE_CLIMBERS],
+  //     },
+  //     {
+  //       rank: 5,
+  //       player: 'vlory',
+  //       characters: [FALCO],
+  //     },
+  //     {
+  //       rank: 6,
+  //       player: 'mcs',
+  //       characters: [SHEIK],
+  //     },
+  //     {
+  //       rank: 7,
+  //       player: 'not',
+  //       characters: [FOX],
+  //     },
+  //     {
+  //       rank: 8,
+  //       player: 'consi',
+  //       characters: [FOX],
+  //     },
+  //     {
+  //       rank: 9,
+  //       player: 'joker',
+  //       characters: [FALCO, FOX],
+  //     },
+  //     {
+  //       rank: 10,
+  //       player: 'gio',
+  //       characters: [MARTH],
+  //     },
+  //     {
+  //       rank: 200,
+  //       player: 'aisen',
+  //       characters: [FOX, MARTH],
+  //       hm: true,
+  //     },
+  //     {
+  //       rank: 190,
+  //       player: 'leso',
+  //       characters: [CAPTAIN_FALCON],
+  //       hm: true,
+  //     },
+  //     {
+  //       rank: 180,
+  //       player: 'liar',
+  //       characters: [FALCO],
+  //       hm: true,
+  //     },
+  //     {
+  //       rank: 170,
+  //       player: 'phonix',
+  //       characters: [SHEIK, JIGGLYPUFF],
+  //       hm: true,
+  //     },
+  //     {
+  //       rank: 160,
+  //       player: 'trz',
+  //       characters: [CAPTAIN_FALCON],
+  //       hm: true,
+  //     },
+  //   ],
+  // },
 ];
 
 export const getSortedRankings = (): Readonly<Array<PowerRanking>> => {
@@ -1784,6 +1794,30 @@ export const getSortedRankings = (): Readonly<Array<PowerRanking>> => {
     }
     return a.title.localeCompare(b.title);
   });
+};
+
+export const getRankingsByCode = (data: any, code: string): Array<RankingResult> => {
+  const rankings = getSortedRankings();
+  const rankingsByCode: RankingResult[] = [];
+  for (const ranking of rankings) {
+    const rankingPlayer = ranking.players.find((p) =>
+      data.db.fGetPlayerBySlug(p.player)?.slippiConnectCodes?.includes(code)
+    );
+    if(!rankingPlayer) {
+      continue;
+    }
+
+    rankingsByCode.push({
+      year: ranking.year,
+      title: ranking.title,
+      flag: ranking.flag || ranking.tag.toLowerCase(),
+      tag: ranking.tag,
+      player: rankingPlayer.player,
+      rank: rankingPlayer.hm ? `HM` : `#${rankingPlayer.rank}`,
+      characters: rankingPlayer.characters,
+    });
+  }
+  return rankingsByCode;
 };
 
 const _findLatestRankByCode = (data: any, code: string): any /*RankingData */ => {

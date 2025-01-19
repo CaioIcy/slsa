@@ -30,7 +30,7 @@ function buildCodeMapEntry(slippiAccount, slug) {
     (newSlippiAccount) => slippiAccount.connectCode.code === newSlippiAccount.connectCode.code
   );
 
-  const isNew = oldSlippiAccount?.rankedNetplayProfile.continent === null;
+  const isNew = !oldSlippiAccount || !oldSlippiAccount?.rankedNetplayProfile?.continent;
   return {
     slug: slug,
     rank: newRankIndex + 1,
@@ -61,17 +61,6 @@ function validate() {
         codes.add(code);
       }
     }
-
-    if (['br', 'cl'].includes(player.countryCode) && !player.subregion) {
-      console.error('ERR_NO_SUBREGION', player);
-    }
-
-    // ERR_NO_SLUG
-    // if(!player.slug && (!!player.countryCode || !!player.subregion)) {
-    //   console.error("ERR_NO_SLUG", player);
-    // }
-
-    // empty slippi codes?
   }
 }
 
