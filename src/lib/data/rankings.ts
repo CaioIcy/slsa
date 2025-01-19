@@ -1755,93 +1755,93 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
       },
     ],
   },
-  // {
-  //   year: 2024,
-  //   title: 'Brazil',
-  //   tag: 'BR',
-  //   players: [
-  //     {
-  //       rank: 1,
-  //       player: 'caioicy',
-  //       characters: [FOX],
-  //     },
-  //     {
-  //       rank: 2,
-  //       player: 'aleixo',
-  //       characters: [PEACH],
-  //     },
-  //     {
-  //       rank: 3,
-  //       player: 'wario',
-  //       characters: [CAPTAIN_FALCON],
-  //     },
-  //     {
-  //       rank: 4,
-  //       player: 'zen',
-  //       characters: [ICE_CLIMBERS],
-  //     },
-  //     {
-  //       rank: 5,
-  //       player: 'vlory',
-  //       characters: [FALCO],
-  //     },
-  //     {
-  //       rank: 6,
-  //       player: 'mcs',
-  //       characters: [SHEIK],
-  //     },
-  //     {
-  //       rank: 7,
-  //       player: 'not',
-  //       characters: [FOX],
-  //     },
-  //     {
-  //       rank: 8,
-  //       player: 'consi',
-  //       characters: [FOX],
-  //     },
-  //     {
-  //       rank: 9,
-  //       player: 'joker',
-  //       characters: [FALCO, FOX],
-  //     },
-  //     {
-  //       rank: 10,
-  //       player: 'gio',
-  //       characters: [MARTH],
-  //     },
-  //     {
-  //       rank: 200,
-  //       player: 'aisen',
-  //       characters: [FOX, MARTH],
-  //       hm: true,
-  //     },
-  //     {
-  //       rank: 190,
-  //       player: 'leso',
-  //       characters: [CAPTAIN_FALCON],
-  //       hm: true,
-  //     },
-  //     {
-  //       rank: 180,
-  //       player: 'liar',
-  //       characters: [FALCO],
-  //       hm: true,
-  //     },
-  //     {
-  //       rank: 170,
-  //       player: 'phonix',
-  //       characters: [SHEIK, JIGGLYPUFF],
-  //       hm: true,
-  //     },
-  //     {
-  //       rank: 160,
-  //       player: 'trz',
-  //       characters: [CAPTAIN_FALCON],
-  //       hm: true,
-  //     },
-  //   ],
-  // },
+  {
+    year: 2024,
+    title: 'Brazil',
+    tag: 'BR',
+    players: [
+      {
+        rank: 1,
+        player: 'caioicy',
+        characters: [FOX],
+      },
+      {
+        rank: 2,
+        player: 'aleixo',
+        characters: [PEACH],
+      },
+      {
+        rank: 3,
+        player: 'wario',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 4,
+        player: 'zen',
+        characters: [ICE_CLIMBERS],
+      },
+      {
+        rank: 5,
+        player: 'vlory',
+        characters: [FALCO],
+      },
+      {
+        rank: 6,
+        player: 'mcs',
+        characters: [SHEIK],
+      },
+      {
+        rank: 7,
+        player: 'not',
+        characters: [FOX],
+      },
+      {
+        rank: 8,
+        player: 'consi',
+        characters: [FOX],
+      },
+      {
+        rank: 9,
+        player: 'joker',
+        characters: [FALCO, FOX],
+      },
+      {
+        rank: 10,
+        player: 'gio',
+        characters: [MARTH],
+      },
+      {
+        rank: 200,
+        player: 'aisen',
+        characters: [FOX, MARTH],
+        hm: true,
+      },
+      {
+        rank: 190,
+        player: 'leso',
+        characters: [CAPTAIN_FALCON],
+        hm: true,
+      },
+      {
+        rank: 180,
+        player: 'liar',
+        characters: [FALCO],
+        hm: true,
+      },
+      {
+        rank: 170,
+        player: 'phonix',
+        characters: [SHEIK, JIGGLYPUFF],
+        hm: true,
+      },
+      {
+        rank: 160,
+        player: 'trz',
+        characters: [CAPTAIN_FALCON],
+        hm: true,
+      },
+    ],
+  },
 ];
 
 export const getSortedRankings = (): Readonly<Array<PowerRanking>> => {

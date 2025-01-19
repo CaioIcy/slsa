@@ -1663,7 +1663,6 @@ export const players: Array<Player> = [
   {
     slug: 'rush',
     tag: 'rush',
-    countryCode: 'ar',
     slippiConnectCodes: ['RUSH#859']
   },
   {
