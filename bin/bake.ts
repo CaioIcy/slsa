@@ -23,10 +23,10 @@ function buildCodeMapEntry(slippiAccount, slug) {
     (o) => slippiAccount.connectCode.code === o.connectCode.code
   );
 
-  const oldRankIndex = dataOldAccounts.findIndex(
+  const oldRankIndex = dataOldAccounts.filter(oldSlippiAccount => oldSlippiAccount.rankedNetplayProfile.ratingUpdateCount > 0).findIndex(
     (oldSlippiAccount) => slippiAccount.connectCode.code === oldSlippiAccount.connectCode.code
   );
-  const newRankIndex = dataNewAccounts.findIndex(
+  const newRankIndex = dataNewAccounts.filter(newSlippiAccount => newSlippiAccount.rankedNetplayProfile.ratingUpdateCount > 0).findIndex(
     (newSlippiAccount) => slippiAccount.connectCode.code === newSlippiAccount.connectCode.code
   );
 
