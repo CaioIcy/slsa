@@ -611,6 +611,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'iguana',
+    tag: 'Iguana',
     slippiConnectCodes: ['IGUANA#0'],
     countryCode: 'uy'
   },
@@ -1035,8 +1036,8 @@ export const players: Array<Player> = [
     slippiConnectCodes: ['BISU#603'],
   },
   {
-    slug: 'mingu',
-    tag: 'Mingu',
+    slug: 'mingudai',
+    tag: 'Mingudai',
     countryCode: 'uy',
     slippiConnectCodes: ['MING#899']
   },
@@ -2428,5 +2429,113 @@ export const players: Array<Player> = [
     tag: 'Fak3_noid',
     countryCode: 'ar',
     slippiConnectCodes: ['FAKE#482'],
+  },
+  {
+    slug: 'sagat',
+    tag: 'Sagat',
+    countryCode: 'uy',
+    slippiConnectCodes: ['PIUU#290'],
+  },
+  {
+    slug: 'transformacion',
+    tag: 'Transformación',
+    countryCode: 'uy',
+    slippiConnectCodes: ['BACH#321'],
+  },
+  {
+    slug: 'kapito',
+    tag: 'Kapito22',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 's1r',
+    tag: 'S1R',
+    countryCode: 'uy',
+    slippiConnectCodes: ['SR#359'],
+  },
+  {
+    slug: 'cubax',
+    tag: 'Cubax',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'aalz',
+    tag: 'Aalz',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'dio',
+    tag: 'DIO',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'razorblade',
+    tag: 'RazorBlade',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'pencil',
+    tag: 'Pencil',
+    countryCode: 'uy',
+    slippiConnectCodes: ['WING#334'],
+  },
+  {
+    slug: 'bugsmasher',
+    tag: 'BugSmasher',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'walachia',
+    tag: 'Walachia',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'cody',
+    tag: 'Cody',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'kalarse',
+    tag: 'kalarse',
+    countryCode: 'uy',
+    slippiConnectCodes: ['KALA#292'],
+  },
+  {
+    slug: 'alberti',
+    tag: 'Alberti',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'titymc',
+    tag: 'TityMc',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'pladson',
+    tag: 'Pladson',
+    countryCode: 'uy',
+    slippiConnectCodes: ['PLAD#511'],
+  },
+  {
+    slug: 'blazam',
+    tag: 'Blazam',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'sigma-uy',
+    tag: 'Sigma',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
   },
 ];

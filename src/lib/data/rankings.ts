@@ -53,7 +53,7 @@ const YOSHI = 'YOSHI';
 const YOUNG_LINK = 'YOUNG_LINK';
 const ZELDA = 'ZELDA';
 
-type PowerRankingTag = 'SA' | 'CL' | 'BR' | 'VE' | 'PE' | 'AR';
+type PowerRankingTag = 'SA' | 'CL' | 'BR' | 'VE' | 'PE' | 'AR' | 'UY';
 
 export interface PowerRankingPlayer {
   rank: number;
@@ -82,6 +82,89 @@ interface RankingResult {
 }
 
 export const RANKINGS: Readonly<Array<PowerRanking>> = [
+  {
+    year: 2020,
+    title: 'Uruguay',
+    subtitle: 'ELO',
+    tag: 'UY',
+    players: [
+      {
+        rank: 1,
+        player: 'sagat',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 2,
+        player: 'srpaz',
+        characters: [FALCO],
+      },
+      {
+        rank: 3,
+        player: 'iguana',
+        characters: [PEACH],
+      },
+      {
+        rank: 4,
+        player: 'solid',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 5,
+        player: 'francokiwi',
+        characters: [ZELDA],
+      },
+      {
+        rank: 6,
+        player: 'aalz',
+        characters: [YOSHI],
+      },
+      {
+        rank: 7,
+        player: 'dio',
+        characters: [SHEIK],
+      },
+      {
+        rank: 8,
+        player: 'smeag',
+        characters: [GAME_AND_WATCH],
+      },
+      {
+        rank: 9,
+        player: 'pladson',
+        characters: [LINK],
+      },
+      {
+        rank: 10,
+        player: 'bugsmasher',
+        characters: [MARTH],
+      },
+      {
+        rank: 11,
+        player: 'kapito',
+        characters: [FOX],
+      },
+      {
+        rank: 12,
+        player: 'transformacion',
+        characters: [FOX],
+      },
+      {
+        rank: 13,
+        player: 'blazam',
+        characters: [MARIO],
+      },
+      {
+        rank: 14,
+        player: 'walachia',
+        characters: [MARTH],
+      },
+      {
+        rank: 15,
+        player: 'sigma-uy',
+        characters: [YOUNG_LINK],
+      },
+    ],
+  },
   {
     year: 2020,
     title: 'Chile',
@@ -500,6 +583,64 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
         characters: [JIGGLYPUFF]
       }
     ]
+  },
+  {
+    year: 2021,
+    title: 'Uruguay',
+    subtitle: 'ELO',
+    tag: 'UY',
+    players: [
+      {
+        rank: 1,
+        player: 'sagat',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 2,
+        player: 'iguana',
+        characters: [PEACH],
+      },
+      {
+        rank: 3,
+        player: 'srpaz',
+        characters: [FALCO],
+      },
+      {
+        rank: 4,
+        player: 'solid',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 5,
+        player: 'francokiwi',
+        characters: [ZELDA],
+      },
+      {
+        rank: 6,
+        player: 'kapito',
+        characters: [FOX],
+      },
+      {
+        rank: 7,
+        player: 'transformacion',
+        characters: [FOX],
+      },
+      {
+        rank: 8,
+        player: 'alberti',
+        characters: [JIGGLYPUFF],
+      },
+      {
+        rank: 9,
+        player: 'titymc',
+        characters: [LUIGI],
+      },
+      {
+        rank: 10,
+        player: 'kalarse',
+        characters: [MARTH],
+      },
+    ],
   },
   {
     year: 2021,
@@ -1170,6 +1311,89 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
   },
   {
     year: 2023,
+    title: 'Uruguay',
+    subtitle: 'ELO',
+    tag: 'UY',
+    players: [
+      {
+        rank: 1,
+        player: 'sagat',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 2,
+        player: 'iguana',
+        characters: [PEACH],
+      },
+      {
+        rank: 3,
+        player: 'mingudai',
+        characters: [FOX],
+      },
+      {
+        rank: 4,
+        player: 'francokiwi',
+        characters: [ZELDA],
+      },
+      {
+        rank: 5,
+        player: 'srpaz',
+        characters: [FALCO],
+      },
+      {
+        rank: 6,
+        player: 'transformacion',
+        characters: [FOX],
+      },
+      {
+        rank: 7,
+        player: 'kapito',
+        characters: [FOX],
+      },
+      {
+        rank: 8,
+        player: 'solid',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 8,
+        player: 's1r',
+        characters: [SHEIK],
+      },
+      {
+        rank: 10,
+        player: 'walachia',
+        characters: [MARTH],
+      },
+      {
+        rank: 11,
+        player: 'cody',
+        characters: [PEACH],
+      },
+      {
+        rank: 12,
+        player: 'smeag',
+        characters: [GAME_AND_WATCH],
+      },
+      {
+        rank: 13,
+        player: 'kalarse',
+        characters: [MARTH],
+      },
+      {
+        rank: 14,
+        player: 'pencil',
+        characters: [PIKACHU],
+      },
+      {
+        rank: 15,
+        player: 'zeeka',
+        characters: [SHEIK],
+      },
+    ],
+  },
+  {
+    year: 2023,
     title: 'Venezuela',
     tag: 'VE',
     players: [
@@ -1554,6 +1778,89 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
         characters: [MARTH]
       }
     ]
+  },
+  {
+    year: 2024,
+    title: 'Uruguay',
+    subtitle: 'ELO',
+    tag: 'UY',
+    players: [
+      {
+        rank: 1,
+        player: 'sagat',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 2,
+        player: 'iguana',
+        characters: [PEACH],
+      },
+      {
+        rank: 3,
+        player: 'solid',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 4,
+        player: 'srpaz',
+        characters: [FALCO],
+      },
+      {
+        rank: 5,
+        player: 'transformacion',
+        characters: [FOX],
+      },
+      {
+        rank: 6,
+        player: 'francokiwi',
+        characters: [ZELDA],
+      },
+      {
+        rank: 7,
+        player: 'kapito',
+        characters: [FOX],
+      },
+      {
+        rank: 8,
+        player: 's1r',
+        characters: [SHEIK],
+      },
+      {
+        rank: 9,
+        player: 'mingudai',
+        characters: [FOX],
+      },
+      {
+        rank: 10,
+        player: 'cubax',
+        characters: [FALCO],
+      },
+      {
+        rank: 11,
+        player: 'aalz',
+        characters: [YOSHI],
+      },
+      {
+        rank: 12,
+        player: 'dio',
+        characters: [SHEIK],
+      },
+      {
+        rank: 13,
+        player: 'razorblade',
+        characters: [FALCO],
+      },
+      {
+        rank: 14,
+        player: 'pencil',
+        characters: [PIKACHU],
+      },
+      {
+        rank: 15,
+        player: 'bugsmasher',
+        characters: [MARTH],
+      },
+    ],
   },
   {
     year: 2024,
