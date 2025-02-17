@@ -1356,7 +1356,7 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
         characters: [CAPTAIN_FALCON],
       },
       {
-        rank: 8,
+        rank: 9,
         player: 's1r',
         characters: [SHEIK],
       },
@@ -1792,13 +1792,13 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
       },
       {
         rank: 2,
-        player: 'iguana',
-        characters: [PEACH],
+        player: 'solid',
+        characters: [CAPTAIN_FALCON],
       },
       {
         rank: 3,
-        player: 'solid',
-        characters: [CAPTAIN_FALCON],
+        player: 'iguana',
+        characters: [PEACH],
       },
       {
         rank: 4,
@@ -1817,7 +1817,7 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
       },
       {
         rank: 7,
-        player: 'kapito',
+        player: 'mingudai',
         characters: [FOX],
       },
       {
@@ -1827,37 +1827,37 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
       },
       {
         rank: 9,
-        player: 'mingudai',
-        characters: [FOX],
-      },
-      {
-        rank: 10,
-        player: 'cubax',
-        characters: [FALCO],
-      },
-      {
-        rank: 11,
-        player: 'aalz',
-        characters: [YOSHI],
-      },
-      {
-        rank: 12,
-        player: 'dio',
-        characters: [SHEIK],
-      },
-      {
-        rank: 13,
-        player: 'razorblade',
-        characters: [FALCO],
-      },
-      {
-        rank: 14,
         player: 'pencil',
         characters: [PIKACHU],
       },
       {
+        rank: 10,
+        player: 'hairybald',
+        characters: [MARTH],
+      },
+      {
+        rank: 11,
+        player: 'dtk',
+        characters: [SHEIK],
+      },
+      {
+        rank: 12,
+        player: 'smeag',
+        characters: [GAME_AND_WATCH],
+      },
+      {
+        rank: 13,
+        player: 'zeeka',
+        characters: [SHEIK],
+      },
+      {
+        rank: 14,
+        player: 'pladson',
+        characters: [LINK],
+      },
+      {
         rank: 15,
-        player: 'bugsmasher',
+        player: 'kalarse',
         characters: [MARTH],
       },
     ],

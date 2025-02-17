@@ -2538,4 +2538,16 @@ export const players: Array<Player> = [
     countryCode: 'uy',
     slippiConnectCodes: [],
   },
+  {
+    slug: 'hairybald',
+    tag: 'Ha1ryb4lD',
+    countryCode: 'uy',
+    slippiConnectCodes: ['HRBL#329'],
+  },
+  {
+    slug: 'dtk',
+    tag: 'DTK',
+    countryCode: 'uy',
+    slippiConnectCodes: ['DTK#706'],
+  },
 ];
