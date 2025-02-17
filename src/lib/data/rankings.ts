@@ -2064,6 +2064,138 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
   },
   {
     year: 2024,
+    title: 'Chile',
+    tag: 'CL',
+    players: [
+      {
+        rank: 1,
+        player: 'dark',
+        characters: [FOX],
+      },
+      {
+        rank: 2,
+        player: 'mave',
+        characters: [MARTH],
+      },
+      {
+        rank: 3,
+        player: 'raikin',
+        characters: [SHEIK],
+      },
+      {
+        rank: 4,
+        player: 'lincho',
+        characters: [MARTH],
+      },
+      {
+        rank: 5,
+        player: 'drop',
+        characters: [FOX],
+      },
+      {
+        rank: 6,
+        player: 'rocket',
+        characters: [YOUNG_LINK],
+      },
+      {
+        rank: 7,
+        player: 'hp',
+        characters: [FALCO],
+      },
+      {
+        rank: 8,
+        player: 'roche',
+        characters: [MARTH],
+      },
+      {
+        rank: 9,
+        player: 'lopino',
+        characters: [ICE_CLIMBERS],
+      },
+      {
+        rank: 10,
+        player: 'weonx',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 11,
+        player: 'crono',
+        characters: [FOX],
+      },
+      {
+        rank: 12,
+        player: 'hunk',
+        characters: [SHEIK],
+      },
+      {
+        rank: 13,
+        player: 'clowder',
+        characters: [FOX],
+      },
+      {
+        rank: 14,
+        player: 'ndj',
+        characters: [PIKACHU],
+      },
+      {
+        rank: 15,
+        player: 'drgs',
+        characters: [FALCO],
+      },
+      {
+        rank: 16,
+        player: 'josha',
+        characters: [FOX],
+      },
+      {
+        rank: 17,
+        player: 'tau',
+        characters: [MARTH],
+      },
+      {
+        rank: 18,
+        player: 'zag',
+        characters: [JIGGLYPUFF],
+      },
+      {
+        rank: 19,
+        player: 'shamo',
+        characters: [MARTH],
+      },
+      {
+        rank: 20,
+        player: 'deimos',
+        characters: [GANONDORF],
+      },
+      {
+        rank: 21,
+        player: 'batou',
+        characters: [FALCO],
+      },
+      {
+        rank: 22,
+        player: 'ntq',
+        characters: [JIGGLYPUFF],
+      },
+      {
+        rank: 23,
+        player: 'gabo',
+        characters: [FALCO],
+      },
+      {
+        rank: 24,
+        player: 'tpoz',
+        characters: [SHEIK],
+      },
+      {
+        rank: 25,
+        player: 'duals',
+        characters: [LUIGI],
+      },
+    ],
+  },
+  {
+    year: 2024,
     title: 'Brazil',
     tag: 'BR',
     players: [

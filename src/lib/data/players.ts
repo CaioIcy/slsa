@@ -2550,4 +2550,16 @@ export const players: Array<Player> = [
     countryCode: 'uy',
     slippiConnectCodes: ['DTK#706'],
   },
+  {
+    slug: 'weonx',
+    tag: 'WeonX',
+    countryCode: 'cl',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'gabo',
+    tag: 'Gabo',
+    countryCode: 'cl',
+    slippiConnectCodes: ['GABO#423'],
+  },
 ];
