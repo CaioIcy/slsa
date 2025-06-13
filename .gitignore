@@ -16,3 +16,5 @@ logs
 *.log
 .eslintcache
 *.swp
+mise.local.toml
+.claude/

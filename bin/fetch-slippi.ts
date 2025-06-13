@@ -7,51 +7,68 @@ import { DateTime, Duration, Settings } from 'luxon';
 Settings.defaultZone = 'utc';
 
 import { RateLimiter } from 'limiter';
-const limiter = new RateLimiter({ tokensPerInterval: 2, interval: 'second' });
+const limiter = new RateLimiter({ tokensPerInterval: 1, interval: 'second' });
 export const getPlayerDataThrottled = async (connectCode: string) => {
   const _ = await limiter.removeTokens(1); // don't remove this limiter
   const query = `
-    fragment userProfilePage on User {
-        displayName
-        connectCode {
-            code
-        }
-        rankedNetplayProfile {
-            ratingOrdinal
-            ratingUpdateCount
-            wins
-            losses
-            dailyGlobalPlacement
-            dailyRegionalPlacement
-            continent
-            characters {
-                character
-                gameCount
-            }
-        }
+    fragment profileFields on NetplayProfile {
+      ratingOrdinal
+      ratingUpdateCount
+      wins
+      losses
+      dailyGlobalPlacement
+      dailyRegionalPlacement
+      continent
+      characters {
+        character
+        gameCount
+      }
     }
 
-    query AccountManagementPageQuery($cc: String!) {
-        getConnectCode(code: $cc) {
-            user {
-                ...userProfilePage
-            }
-        }
+    fragment userProfilePage on User {
+      displayName
+      connectCode {
+        code
+      }
+      rankedNetplayProfile {
+        ...profileFields
+      }
+    }
+
+    query UserProfilePageQuery($cc: String) {
+      getUser(connectCode: $cc) {
+        ...userProfilePage
+      }
     }
   `;
 
-  const req = await fetch('https://gql-gateway-dot-slippi.uc.r.appspot.com/graphql', {
-    headers: {
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify({
-      operationName: 'AccountManagementPageQuery',
-      query,
-      variables: { cc: connectCode }
-    }),
-    method: 'POST'
-  });
-  return req.json();
+  try {
+    const req = await fetch('https://internal.slippi.gg/graphql', {
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        operationName: 'UserProfilePageQuery',
+        query,
+        variables: { cc: connectCode }
+      }),
+      method: 'POST'
+    });
+
+    if (!req.ok) {
+      console.error(`Failed to fetch ${connectCode}: HTTP ${req.status} ${req.statusText}`);
+      throw new Error(`HTTP ${req.status} for ${connectCode}`);
+    }
+
+    const data = await req.json();
+    if (data.errors) {
+      console.error(`GraphQL errors for ${connectCode}:`, data.errors);
+    }
+    return data;
+  } catch (error) {
+    console.error(`Error fetching ${connectCode}:`, error.message);
+    throw error;
+  }
 };
 
 import codesJSON from '../data/codes.json' with { type: 'json' };
@@ -70,18 +87,24 @@ const getSlippiPlayers = async (codes) => {
     );
   }
 
-  const allData = codes.map((code) => getPlayerDataThrottled(code));
-  const results = await Promise.all(allData.map((p) => p.catch((e) => e)));
-  const validResults = results.filter((result) => !(result instanceof Error));
-  const invalidResults = results.filter((result) => result instanceof Error);
-  if (invalidResults.length) {
-    console.log(`Invalid results (${invalidResults.length}):`);
-    console.log(invalidResults);
+  const allData = codes.map((code) => getPlayerDataThrottled(code).then(
+    data => ({ code, data, error: null }),
+    error => ({ code, data: null, error })
+  ));
+  const results = await Promise.all(allData);
+  const validResults = results.filter(r => !r.error).map(r => r.data);
+  const failedResults = results.filter(r => r.error);
+
+  if (failedResults.length) {
+    console.log(`\nFailed to fetch ${failedResults.length} codes:`);
+    failedResults.forEach(({ code, error }) => {
+      console.log(`  - ${code}: ${error.message}`);
+    });
   }
 
   const unsortedPlayers = validResults
-    .filter((data: any) => data?.data?.getConnectCode?.user)
-    .map((data: any) => data.data.getConnectCode.user);
+    .filter((data: any) => data?.data?.getUser)
+    .map((data: any) => data.data.getUser);
   return unsortedPlayers.sort(
     (p1, p2) =>
       (p2.rankedNetplayProfile?.ratingOrdinal || 0) - (p1.rankedNetplayProfile?.ratingOrdinal || 0)

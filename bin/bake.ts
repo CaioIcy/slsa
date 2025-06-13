@@ -1,4 +1,4 @@
-#!/usr/bin/env npx vite-node --script
+#!/usr/bin/env -S npx vite-node --script
 
 import * as path from 'path';
 import * as fs from 'fs';
