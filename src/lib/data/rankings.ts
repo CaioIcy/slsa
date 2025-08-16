@@ -1864,6 +1864,143 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
   },
   {
     year: 2024,
+    title: 'Venezuela',
+    tag: 'VE',
+    players: [
+      {
+        rank: 1,
+        player: 'cartezsoul',
+        characters: [PEACH]
+      },
+      {
+        rank: 2,
+        player: 'cax',
+        characters: [FALCO]
+      },
+      {
+        rank: 3,
+        player: 'risotto',
+        characters: [MARTH]
+      },
+      {
+        rank: 4,
+        player: 'blitzkrieg',
+        characters: [SHEIK]
+      },
+      {
+        rank: 5,
+        player: 'watermelown',
+        characters: [CAPTAIN_FALCON]
+      },
+      {
+        rank: 6,
+        player: 'darkaro',
+        characters: [MARTH]
+      },
+      {
+        rank: 7,
+        player: 'neo',
+        characters: [JIGGLYPUFF]
+      },
+      {
+        rank: 8,
+        player: 'marciano',
+        characters: [CAPTAIN_FALCON]
+      },
+      {
+        rank: 9,
+        player: 'yuky',
+        characters: [FALCO]
+      },
+      {
+        rank: 10,
+        player: 'valgarite',
+        characters: [PEACH]
+      },
+      {
+        rank: 11,
+        player: 'luichox',
+        characters: [FALCO]
+      },
+      {
+        rank: 12,
+        player: 'ssaunter',
+        characters: [FALCO]
+      },
+      {
+        rank: 13,
+        player: 'rin',
+        characters: [MARTH]
+      },
+      {
+        rank: 14,
+        player: 'kariark',
+        characters: [FOX]
+      },
+      {
+        rank: 15,
+        player: 'vacon',
+        characters: [FALCO]
+      },
+      {
+        rank: 16,
+        player: 'xpelox',
+        characters: [FALCO]
+      },
+      {
+        rank: 17,
+        player: 'palo',
+        characters: [MARTH]
+      },
+      {
+        rank: 18,
+        player: 'guille',
+        characters: [JIGGLYPUFF]
+      },
+      {
+        rank: 19,
+        player: 'shantae',
+        characters: [PEACH]
+      },
+      {
+        rank: 20,
+        player: 'zihark',
+        characters: [SHEIK]
+      },
+      {
+        hm: true,
+        rank: 101,
+        player: 'h4te',
+        characters: [CAPTAIN_FALCON]
+      },
+      {
+        hm: true,
+        rank: 102,
+        player: 'puzka',
+        characters: [FALCO]
+      },
+      {
+        hm: true,
+        rank: 103,
+        player: 'kike',
+        characters: [MARTH]
+      },
+      {
+        hm: true,
+        rank: 104,
+        player: 'garu',
+        characters: [SHEIK]
+      },
+      {
+        hm: true,
+        rank: 105,
+        player: 'johnconnor',
+        characters: [SHEIK]
+      },
+    ]
+  },
+  {
+    year: 2024,
     title: 'Peru',
     tag: 'PE',
     players: [

@@ -559,6 +559,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'escarcha',
+    tag: 'Escarcha',
     countryCode: 'cl',
     slippiConnectCodes: ['ESCR#315'],
   },
@@ -722,11 +723,6 @@ export const players: Array<Player> = [
     tag: 'pomf',
     slippiConnectCodes: ['POMF#250'],
     countryCode: 'ar'
-  },
-  {
-    slug: '',
-    countryCode: 'cl',
-    slippiConnectCodes: ['POXO#303'],
   },
   {
     slug: '',
@@ -917,7 +913,7 @@ export const players: Array<Player> = [
     slug: 'duals',
     tag: 'Dualscars',
     countryCode: 'cl',
-    slippiConnectCodes: ['DUAL#322'],
+    slippiConnectCodes: ['DUAL#322', 'POXO#303'],
   },
   {
     slug: 'tau',
@@ -1351,7 +1347,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'ssaunter',
-    tag: 'Ssaunter',
+    tag: 'Saunter',
     countryCode: 've',
     slippiConnectCodes: []
   },
@@ -1801,6 +1797,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'noto',
+    tag: 'ÑoTo',
     countryCode: 'cl',
     slippiConnectCodes: ['SSBM#603']
   },
@@ -2132,7 +2129,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'kowot',
-    tag: 'KOWOT',
+    tag: 'Chrys',
     countryCode: 'br',
     slippiConnectCodes: ['KOWO#775'],
     sgg: ['d0de2fe4']
@@ -2651,29 +2648,47 @@ export const players: Array<Player> = [
     slug: 'deodato',
     tag: 'deodatogames',
     countryCode: 'br',
-    slippiConnect1Codes: ['DEO#249'],
+    slippiConnectCodes: ['DEO#249'],
   },
   {
     slug: 'boleto',
     tag: '$Boleto$',
     countryCode: 'br',
-    slippiConnect1Codes: ['BLT#901'],
+    slippiConnectCodes: ['BLT#901'],
   },
   {
     slug: 'chevy',
     tag: 'Chevy',
     countryCode: 'us',
-    slippiConnect1Codes: ['CHEV#703'],
+    slippiConnectCodes: ['CHEV#703'],
   },
   {
     slug: 'deadmanx',
     tag: 'DeadManX',
     countryCode: 'cl',
-    slippiConnect1Codes: ['DEAD#848'],
+    slippiConnectCodes: ['DEAD#848'],
   },
   {
     slug: 'duckyzzz',
     countryCode: 'br',
-    slippiConnect1Codes: ['PATO#361'],
+    slippiConnectCodes: ['PATO#361'],
+  },
+  {
+    slug: 'guille',
+    tag: 'Guille',
+    countryCode: 've',
+    slippiConnectCodes: []
+  },
+  {
+    slug: 'shantae',
+    tag: 'Shantae',
+    countryCode: 've',
+    slippiConnectCodes: []
+  },
+  {
+    slug: 'zihark',
+    tag: 'Zihark',
+    countryCode: 've',
+    slippiConnectCodes: []
   },
 ];
