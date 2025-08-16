@@ -1621,7 +1621,8 @@ export const players: Array<Player> = [
   },
   {
     slug: 'zsaber',
-    tag: 'zsabermaverick',
+    tag: 'ZSaberMaverick',
+    countryCode: 'br',
     slippiConnectCodes: ['ZSAB#649'],
   },
   {
@@ -2154,7 +2155,7 @@ export const players: Array<Player> = [
     slug: 'joker',
     tag: 'Jokerinno',
     countryCode: 'br',
-    slippiConnectCodes: ['JOKE#720'],
+    slippiConnectCodes: ['JOKE#720', 'JOKE#564'],
     sgg: ['b359efe3']
   },
   {
@@ -2621,5 +2622,58 @@ export const players: Array<Player> = [
     tag: 'Zell',
     countryCode: 'co',
     slippiConnectCodes: ['NOHACK#0'],
+  },
+  {
+    slug: 'pudim',
+    tag: 'Pudim',
+    countryCode: 'br',
+    slippiConnectCodes: ['PUDI#590'],
+  },
+  {
+    slug: 'batata',
+    tag: 'Batata Alada',
+    countryCode: 'br',
+    slippiConnectCodes: ['BTAT#210'],
+  },
+  {
+    slug: 'eon',
+    tag: 'Eon',
+    countryCode: 'br',
+    slippiConnectCodes: ['EON#833', 'ERIC#519'],
+  },
+  {
+    slug: 'gabes',
+    tag: 'gabes',
+    countryCode: 'br',
+    slippiConnectCodes: ['GABR#641'],
+  },
+  {
+    slug: 'deodato',
+    tag: 'deodatogames',
+    countryCode: 'br',
+    slippiConnect1Codes: ['DEO#249'],
+  },
+  {
+    slug: 'boleto',
+    tag: '$Boleto$',
+    countryCode: 'br',
+    slippiConnect1Codes: ['BLT#901'],
+  },
+  {
+    slug: 'chevy',
+    tag: 'Chevy',
+    countryCode: 'us',
+    slippiConnect1Codes: ['CHEV#703'],
+  },
+  {
+    slug: 'deadmanx',
+    tag: 'DeadManX',
+    countryCode: 'cl',
+    slippiConnect1Codes: ['DEAD#848'],
+  },
+  {
+    slug: 'duckyzzz',
+    countryCode: 'br',
+    slippiConnect1Codes: ['PATO#361'],
   },
 ];
