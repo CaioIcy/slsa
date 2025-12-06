@@ -2691,4 +2691,10 @@ export const players: Array<Player> = [
     countryCode: 've',
     slippiConnectCodes: []
   },
+  {
+    slug: 'juanis',
+    tag: 'JuanisMarth',
+    countryCode: 'br',
+    slippiConnectCodes: ['JUAN#345'],
+  },
 ];
