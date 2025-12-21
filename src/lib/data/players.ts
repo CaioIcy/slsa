@@ -1787,6 +1787,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'xbruno',
+    tag: 'xbrunodv',
     countryCode: 'cl',
     slippiConnectCodes: ['BRU#729']
   },

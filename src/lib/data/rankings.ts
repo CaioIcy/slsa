@@ -1965,7 +1965,7 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
       {
         rank: 20,
         player: 'zihark',
-        characters: [SHEIK]
+        characters: [SHEIK],
       },
       {
         hm: true,
@@ -2414,6 +2414,93 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
         rank: 160,
         player: 'trz',
         characters: [CAPTAIN_FALCON],
+        hm: true,
+      },
+    ],
+  },
+  {
+    year: 2025,
+    title: 'Brazil',
+    tag: 'BR',
+    players: [
+      {
+        rank: 1,
+        player: 'trz',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 2,
+        player: 'zen',
+        characters: [ICE_CLIMBERS, FOX],
+      },
+      {
+        rank: 3,
+        player: 'wario',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 4,
+        player: 'consi',
+        characters: [FOX],
+      },
+      {
+        rank: 5,
+        player: 'kipp',
+        characters: [FALCO, FOX],
+      },
+      {
+        rank: 6,
+        player: 'not',
+        characters: [FOX],
+      },
+      {
+        rank: 7,
+        player: 'phonix',
+        characters: [SHEIK, JIGGLYPUFF],
+      },
+      {
+        rank: 8,
+        player: 'joker',
+        characters: [FALCO],
+      },
+      {
+        rank: 9,
+        player: 'pastheo',
+        characters: [MARTH, FOX],
+      },
+      {
+        rank: 10,
+        player: 'ehro',
+        characters: [FOX],
+      },
+      {
+        rank: 200,
+        player: 'caioicy',
+        characters: [YOSHI, FOX],
+        hm: true,
+      },
+      {
+        rank: 190,
+        player: 'bira',
+        characters: [FALCO],
+        hm: true,
+      },
+      {
+        rank: 180,
+        player: 'aisen',
+        characters: [FOX],
+        hm: true,
+      },
+      {
+        rank: 170,
+        player: 'aleixo',
+        characters: [PEACH],
+        hm: true,
+      },
+      {
+        rank: 160,
+        player: 'kodo',
+        characters: [MARTH],
         hm: true,
       },
     ],
