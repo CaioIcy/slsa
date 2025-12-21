@@ -112,7 +112,7 @@ const getSlippiPlayers = async (codes) => {
 };
 
 async function main() {
-  if (process.version !== 'v20.12.2') {
+  if (process.version !== 'v22.12.0') {
     console.error('Wrong node version');
     return;
   }
