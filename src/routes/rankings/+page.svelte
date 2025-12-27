@@ -59,7 +59,7 @@
 
             <div class="flex flex-col justify-evenly w-full px-2 leading-[1.25]">
               <div class="flex flex-row justify-start items-center">
-                <p class="font-bold">{data.db.fGetPlayerBySlug(player.player).tag}</p>
+                <p class="font-bold">{data.db.fGetPlayerBySlug(player.player)?.tag || `UNKNOWN (${player.player})` }</p>
               </div>
 
               <div class="flex flex-row justify-start items-center">

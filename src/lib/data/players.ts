@@ -1167,8 +1167,8 @@ export const players: Array<Player> = [
     slippiConnectCodes: ['WISE#903']
   },
   {
-    slug: 'kidcarri',
-    tag: 'GamingWacho',
+    slug: 'kidcarri', // gamingwacho, slimex
+    tag: 'SlimeX',
     countryCode: 'ar',
     slippiConnectCodes: ['SLMX#739']
   },
@@ -2105,7 +2105,7 @@ export const players: Array<Player> = [
   },
   {
     slug: 'arix',
-    tag: 'soyarix',
+    tag: 'T.M. Opera O',
     countryCode: 'ar',
     slippiConnectCodes: ['ARIX#813']
   },
@@ -2697,5 +2697,17 @@ export const players: Array<Player> = [
     tag: 'JuanisMarth',
     countryCode: 'br',
     slippiConnectCodes: ['JUAN#345'],
+  },
+  {
+    slug: 'celi',
+    tag: 'Celi',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
+  },
+  {
+    slug: 'pollo',
+    tag: 'Pollo',
+    countryCode: 'uy',
+    slippiConnectCodes: [],
   },
 ];

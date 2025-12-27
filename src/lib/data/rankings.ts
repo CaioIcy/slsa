@@ -2420,6 +2420,163 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
   },
   {
     year: 2025,
+    title: 'Uruguay',
+    tag: 'UY',
+    players: [
+      {
+        rank: 1,
+        player: 'solid',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 2,
+        player: 'iguana',
+        characters: [PEACH],
+      },
+      {
+        rank: 3,
+        player: 'sagat',
+        characters: [CAPTAIN_FALCON],
+      },
+      {
+        rank: 4,
+        player: 'transformacion',
+        characters: [FOX],
+      },
+      {
+        rank: 5,
+        player: 'srpaz',
+        characters: [FALCO],
+      },
+      {
+        rank: 6,
+        player: 'francokiwi',
+        characters: [ZELDA],
+      },
+      {
+        rank: 7,
+        player: 'mingudai',
+        characters: [FOX],
+      },
+      {
+        rank: 8,
+        player: 's1r',
+        characters: [SHEIK],
+      },
+      {
+        rank: 9,
+        player: 'kalarse',
+        characters: [PEACH],
+      },
+      {
+        rank: 10,
+        player: 'celi',
+        characters: [SHEIK],
+      },
+      {
+        rank: 11,
+        player: 'smeag',
+        characters: [GAME_AND_WATCH],
+      },
+      {
+        rank: 12,
+        player: 'pencil',
+        characters: [PIKACHU],
+      },
+      {
+        rank: 13,
+        player: 'zeeka',
+        characters: [SHEIK],
+      },
+      {
+        rank: 14,
+        player: 'pladson',
+        characters: [DR_MARIO],
+      },
+      {
+        rank: 15,
+        player: 'pollo',
+        characters: [FOX],
+      },
+    ],
+  },
+  {
+    year: 2025,
+    title: 'Argentina',
+    tag: 'AR',
+    players: [
+      {
+        rank: 1,
+        player: 'pomf',
+        characters: [FALCO],
+      },
+      {
+        rank: 2,
+        player: 'kamuri',
+        characters: [PEACH],
+      },
+      {
+        rank: 3,
+        player: 'tgj',
+        characters: [ICE_CLIMBERS],
+      },
+      {
+        rank: 4,
+        player: 'clowder',
+        characters: [FOX, FALCO],
+      },
+      {
+        rank: 5,
+        player: 'papyrus',
+        characters: [MARTH],
+      },
+      {
+        rank: 6,
+        player: 'zinok',
+        characters: [FOX, FALCO],
+      },
+      {
+        rank: 7,
+        player: 'dareot',
+        characters: [FOX, LUIGI],
+      },
+      {
+        rank: 8,
+        player: 'gunz',
+        characters: [ROY, ICE_CLIMBERS],
+      },
+      {
+        rank: 9,
+        player: 'kidcarri',
+        characters: [FOX, JIGGLYPUFF, GAME_AND_WATCH],
+      },
+      {
+        rank: 10,
+        player: 'elfun',
+        characters: [CAPTAIN_FALCON, MARIO],
+      },
+      {
+        rank: 200,
+        player: 'mazu',
+        characters: [FOX, LINK],
+        hm: true,
+      },
+      {
+        rank: 190,
+        player: 'manujs',
+        characters: [CAPTAIN_FALCON],
+        hm: true,
+      },
+      {
+        rank: 180,
+        player: 'arix',
+        characters: [SHEIK],
+        hm: true,
+      },
+    ],
+  },
+  {
+    year: 2025,
     title: 'Brazil',
     tag: 'BR',
     players: [
