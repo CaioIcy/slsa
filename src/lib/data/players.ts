@@ -906,7 +906,7 @@ export const players: Array<Player> = [
     slug: 'capy',
     tag: 'Capyvarado',
     countryCode: 'br',
-    slippiConnectCodes: ['CANT#698'],
+    slippiConnectCodes: ['CANT#698', 'CAPY#555'],
     sgg: ['27346b54']
   },
   {
@@ -2709,5 +2709,42 @@ export const players: Array<Player> = [
     tag: 'Pollo',
     countryCode: 'uy',
     slippiConnectCodes: [],
+  },
+  {
+    slug: 'gabs',
+    tag: 'liquidificador',
+    countryCode: 'br',
+    slippiConnectCodes: ['HBI#551'],
+  },
+  {
+    slug: 'willdroid',
+    tag: 'Will Droid',
+    countryCode: 'br',
+    slippiConnectCodes: ['WILL#903'],
+  },
+  {
+    slug: 'theosmuller',
+    countryCode: 'br',
+    slippiConnectCodes: ['THEO#523'],
+  },
+  {
+    slug: 'ppk',
+    countryCode: 'br',
+    slippiConnectCodes: ['KLX#915'],
+  },
+  {
+    slug: 'starbug',
+    countryCode: 'cl',
+    slippiConnectCodes: ['YEAH#507'],
+  },
+  {
+    slug: 'drakonnen',
+    countryCode: 'cl',
+    slippiConnectCodes: ['DRKN#267'],
+  },
+  {
+    slug: 'dvd',
+    countryCode: 'br',
+    slippiConnectCodes: ['DVD#125'],
   },
 ];
