@@ -2577,6 +2577,116 @@ export const RANKINGS: Readonly<Array<PowerRanking>> = [
   },
   {
     year: 2025,
+    title: 'Chile',
+    tag: 'CL',
+    players: [
+      {
+        rank: 1,
+        player: 'chape',
+        characters: [FOX],
+      },
+      {
+        rank: 2,
+        player: 'dark',
+        characters: [FOX],
+      },
+      {
+        rank: 3,
+        player: 'rocket',
+        characters: [YOUNG_LINK],
+      },
+      {
+        rank: 4,
+        player: 'roche',
+        characters: [MARTH],
+      },
+      {
+        rank: 5,
+        player: 'lincho',
+        characters: [MARTH],
+      },
+      {
+        rank: 6,
+        player: 'gino',
+        characters: [FALCO],
+      },
+      {
+        rank: 7,
+        player: 'lopino',
+        characters: [ICE_CLIMBERS],
+      },
+      {
+        rank: 8,
+        player: 'clowder',
+        characters: [FOX],
+      },
+      {
+        rank: 9,
+        player: 'ndj',
+        characters: [PIKACHU],
+      },
+      {
+        rank: 10,
+        player: 'guas',
+        characters: [MEWTWO],
+      },
+      {
+        rank: 11,
+        player: 'crono',
+        characters: [FOX],
+      },
+      {
+        rank: 12,
+        player: 'ilde',
+        characters: [SHEIK],
+      },
+      {
+        rank: 13,
+        player: 'josha',
+        characters: [FOX],
+      },
+      {
+        rank: 14,
+        player: 'tau',
+        characters: [MARTH],
+      },
+      {
+        rank: 15,
+        player: 'shamo',
+        characters: [MARTH],
+      },
+      {
+        rank: 16,
+        player: 'duals',
+        characters: [LUIGI],
+      },
+      {
+        rank: 17,
+        player: 'kdj',
+        characters: [SHEIK],
+      },
+      {
+        rank: 101,
+        player: 'xbruno',
+        characters: [FALCO],
+        hm: true,
+      },
+      {
+        rank: 102,
+        player: 'pttt',
+        characters: [ICE_CLIMBERS],
+        hm: true,
+      },
+      {
+        rank: 103,
+        player: 'hp',
+        characters: [FALCO],
+        hm: true,
+      },
+    ],
+  },
+  {
+    year: 2025,
     title: 'Brazil',
     tag: 'BR',
     players: [
