@@ -1,8 +1,10 @@
+import { base } from '$app/paths';
+
 export const prerender = true;
 export const trailingSlash = 'always';
 
 export async function load({ fetch }) {
-  const dataJSON = await fetch('/data.json');
+  const dataJSON = await fetch(`${base}/data.json`);
   const data = await dataJSON.json();
   return {
     db: buildDB(data),
