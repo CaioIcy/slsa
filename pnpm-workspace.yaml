@@ -1,0 +1,7 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+  svelte-preprocess: false # postinstall is only an echo reminder; dist/ ships prebuilt
+
+engineStrict: true
+strictPeerDependencies: true
