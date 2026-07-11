@@ -14,8 +14,16 @@ mkdir -p ./local/ranked/
 npx vite-node --script bin/fetch-slippi.ts
 
 # old prebuild.ts
+# An empty rev here would silently degrade to `git show :<path>` (the index),
+# writing the current data as "old" and reducing the diff window to one run.
+old_commit=$(git rev-list -n 1 --before="72 hours ago" HEAD)
+if [[ -z "$old_commit" ]]; then
+  echo "no commit older than 72h; checkout is too shallow (see fetch-depth in run.yml)" >&2
+  exit 1
+fi
+
 rm -f ./data/slippi-old.json
-git show $(git rev-list -n 1 --before="72 hours ago" HEAD):./data/slippi-new.json > ./data/slippi-old.json
+git show "$old_commit:./data/slippi-new.json" > ./data/slippi-old.json
 cp -f ./local/ranked/.ranked-slippi.json ./data/slippi-new.json
 
 npx vite-node --script bin/bake.ts
