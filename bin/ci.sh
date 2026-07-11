@@ -1,12 +1,14 @@
 #!/bin/bash
 set -eo pipefail
 
-# skip if not ranked day
-set +e
-npx vite-node --script bin/is-ranked-day.ts
-exit_code=$?
-[[ $exit_code == 42 ]] && exit 0
-set -e
+# skip if not ranked day, unless manually triggered via workflow_dispatch
+if [[ "${GITHUB_EVENT_NAME}" != "workflow_dispatch" ]]; then
+  set +e
+  npx vite-node --script bin/is-ranked-day.ts
+  exit_code=$?
+  [[ $exit_code == 42 ]] && exit 0
+  set -e
+fi
 
 mkdir -p ./local/ranked/
 npx vite-node --script bin/fetch-slippi.ts
