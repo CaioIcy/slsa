@@ -112,11 +112,6 @@ const getSlippiPlayers = async (codes) => {
 };
 
 async function main() {
-  if (process.version !== 'v22.12.0') {
-    console.error('Wrong node version');
-    return;
-  }
-
   const now = DateTime.now().toUTC();
   console.log(`Running fetchPlayers (${true ? 'ranked' : 'unranked'}): ${now.ts}`);
 
