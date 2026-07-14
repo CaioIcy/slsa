@@ -7,67 +7,78 @@ import { DateTime, Duration, Settings } from 'luxon';
 Settings.defaultZone = 'utc';
 
 import { RateLimiter } from 'limiter';
-const limiter = new RateLimiter({ tokensPerInterval: 1, interval: 'second' });
-export const getPlayerDataThrottled = async (connectCode: string) => {
-  const _ = await limiter.removeTokens(1); // don't remove this limiter
-  const query = `
-    fragment profileFields on NetplayProfile {
-      ratingOrdinal
-      ratingUpdateCount
-      wins
-      losses
-      dailyGlobalPlacement
-      dailyRegionalPlacement
-      continent
-      characters {
-        character
-        gameCount
-      }
-    }
+// One request per batch, spaced 2s apart. Slippi's getUser supports field aliasing,
+// so BATCH_SIZE codes are fetched in a single request; don't remove this limiter.
+const BATCH_SIZE = 200;
+const limiter = new RateLimiter({ tokensPerInterval: 1, interval: 2000 });
 
-    fragment userProfilePage on User {
-      displayName
-      connectCode {
-        code
-      }
-      rankedNetplayProfile {
-        ...profileFields
-      }
+const FRAGMENTS = `
+  fragment profileFields on NetplayProfile {
+    ratingOrdinal
+    ratingUpdateCount
+    wins
+    losses
+    dailyGlobalPlacement
+    dailyRegionalPlacement
+    continent
+    characters {
+      character
+      gameCount
     }
+  }
 
-    query UserProfilePageQuery($cc: String) {
-      getUser(connectCode: $cc) {
-        ...userProfilePage
-      }
+  fragment userProfilePage on User {
+    displayName
+    connectCode {
+      code
     }
-  `;
+    rankedNetplayProfile {
+      ...profileFields
+    }
+  }
+`;
 
-  try {
+// Fetch a batch of codes in one aliased GraphQL request. Codes are passed as query
+// variables (not interpolated) so values containing '#' can't break the query. An
+// invalid/removed code resolves to null for its alias with no top-level error, so it
+// is simply dropped. Returns the non-null User objects for the batch.
+const getPlayerBatch = async (codes: string[]) => {
+  await limiter.removeTokens(1);
+
+  const varDefs = codes.map((_, i) => `$cc${i}: String`).join(', ');
+  const selections = codes
+    .map((_, i) => `a${i}: getUser(connectCode: $cc${i}) { ...userProfilePage }`)
+    .join('\n');
+  const query = `${FRAGMENTS}\n query BatchUserProfileQuery(${varDefs}) {\n${selections}\n }`;
+  const variables = Object.fromEntries(codes.map((code, i) => [`cc${i}`, code]));
+
+  const fetchOnce = async () => {
     const req = await fetch('https://internal.slippi.gg/graphql', {
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        operationName: 'UserProfilePageQuery',
-        query,
-        variables: { cc: connectCode }
-      }),
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ operationName: 'BatchUserProfileQuery', query, variables }),
       method: 'POST'
     });
-
     if (!req.ok) {
-      console.error(`Failed to fetch ${connectCode}: HTTP ${req.status} ${req.statusText}`);
-      throw new Error(`HTTP ${req.status} for ${connectCode}`);
+      throw new Error(`HTTP ${req.status} ${req.statusText}`);
     }
-
     const data = await req.json();
     if (data.errors) {
-      console.error(`GraphQL errors for ${connectCode}:`, data.errors);
+      console.error('GraphQL errors:', data.errors);
     }
-    return data;
+    return codes.map((_, i) => data?.data?.[`a${i}`]).filter(Boolean);
+  };
+
+  try {
+    return await fetchOnce();
   } catch (error) {
-    console.error(`Error fetching ${connectCode}:`, error.message);
-    throw error;
+    console.error(`Batch failed (${codes.length} codes), retrying once: ${error.message}`);
+    try {
+      await limiter.removeTokens(1);
+      return await fetchOnce();
+    } catch (retryError) {
+      console.error(`Batch failed again, skipping ${codes.length} codes: ${retryError.message}`);
+      return [];
+    }
   }
 };
 
@@ -87,24 +98,19 @@ const getSlippiPlayers = async (codes) => {
     );
   }
 
-  const allData = codes.map((code) => getPlayerDataThrottled(code).then(
-    data => ({ code, data, error: null }),
-    error => ({ code, data: null, error })
-  ));
-  const results = await Promise.all(allData);
-  const validResults = results.filter(r => !r.error).map(r => r.data);
-  const failedResults = results.filter(r => r.error);
+  const batches: string[][] = [];
+  for (let i = 0; i < codes.length; i += BATCH_SIZE) {
+    batches.push(codes.slice(i, i + BATCH_SIZE));
+  }
+  console.log(`Fetching in ${batches.length} batch(es) of up to ${BATCH_SIZE}...`);
 
-  if (failedResults.length) {
-    console.log(`\nFailed to fetch ${failedResults.length} codes:`);
-    failedResults.forEach(({ code, error }) => {
-      console.log(`  - ${code}: ${error.message}`);
-    });
+  const unsortedPlayers = [];
+  for (let i = 0; i < batches.length; i++) {
+    const players = await getPlayerBatch(batches[i]);
+    console.log(`  batch ${i + 1}/${batches.length}: ${players.length}/${batches[i].length}`);
+    unsortedPlayers.push(...players);
   }
 
-  const unsortedPlayers = validResults
-    .filter((data: any) => data?.data?.getUser)
-    .map((data: any) => data.data.getUser);
   return unsortedPlayers.sort(
     (p1, p2) =>
       (p2.rankedNetplayProfile?.ratingOrdinal || 0) - (p1.rankedNetplayProfile?.ratingOrdinal || 0)
