@@ -16,8 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          # bin/ci.sh needs a commit older than 72h to build data/slippi-old.json.
-          # Worst case observed is 35 commits in any 72h window; 100 leaves headroom.
+          # bin/ci.sh needs the last commit from before the current ranked day opened
+          # to build data/slippi-old.json, i.e. everything committed today plus one:
+          # ~12 bot commits per ranked day, plus whatever code landed since. 100 leaves
+          # headroom even if a ranked day is missed entirely.
           fetch-depth: 100
 
       - name: Install Node.js

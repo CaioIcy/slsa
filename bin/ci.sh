@@ -14,11 +14,18 @@ mkdir -p ./local/ranked/
 npx vite-node --script bin/fetch-slippi.ts
 
 # old prebuild.ts
+# Baseline is the last data committed before the current ranked day opened, so the
+# deltas bake.ts computes read as "what changed during this ranked day". Anchoring
+# to the window start rather than a fixed age (ranked days are 24h out of every 96h)
+# keeps the baseline identical for every run of the day, and doesn't drift when the
+# GitHub cron fires late or a workflow_dispatch commits data between ranked days.
+window_start=$(npx vite-node --script bin/ranked-window-start.ts)
+
 # An empty rev here would silently degrade to `git show :<path>` (the index),
 # writing the current data as "old" and reducing the diff window to one run.
-old_commit=$(git rev-list -n 1 --before="72 hours ago" HEAD)
+old_commit=$(git rev-list -n 1 --before="${window_start}" HEAD)
 if [[ -z "$old_commit" ]]; then
-  echo "no commit older than 72h; checkout is too shallow (see fetch-depth in run.yml)" >&2
+  echo "no commit older than ${window_start}; checkout is too shallow (see fetch-depth in run.yml)" >&2
   exit 1
 fi
 
