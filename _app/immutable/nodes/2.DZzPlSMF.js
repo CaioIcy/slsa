@@ -1,1 +1,0 @@
-import{s as t,o as e}from"../chunks/DI7dxzhH.js";import{S as n,i as a}from"../chunks/CVP1_GWu.js";import{g as r}from"../chunks/BAl_TveL.js";import{b as i}from"../chunks/BDY89mR_.js";function m(o){return e(async()=>{r(`${i}/leaderboards`)}),[]}class u extends n{constructor(s){super(),a(this,s,m,null,t,{})}}export{u as component};
