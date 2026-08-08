@@ -603,7 +603,7 @@ export const players: Array<Player> = [
     slug: 'high',
     tag: 'High',
     countryCode: 'br',
-    slippiConnectCodes: ['HIGH#103'],
+    slippiConnectCodes: ['HIGH#103', 'HIGH#637'],
   },
   {
     slug: 'hork',
@@ -2746,5 +2746,17 @@ export const players: Array<Player> = [
     slug: 'dvd',
     countryCode: 'br',
     slippiConnectCodes: ['DVD#125'],
+  },
+  {
+    slug: 'oferton',
+    tag: 'Oferton',
+    countryCode: 'pe',
+    slippiConnectCodes: ['1SHINE#0'],
+  },
+  {
+    slug: 'luferanha',
+    tag: 'luferanha',
+    countryCode: 'br',
+    slippiConnectCodes: ['LUFE#842'],
   },
 ];
