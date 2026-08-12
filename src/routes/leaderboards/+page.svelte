@@ -56,6 +56,29 @@
     selectedRegion = id;
   }
 
+  // Activity filter: who moved between slippi-old and slippi-new, i.e. who played
+  // during the current ranked day. A rank diff on its own doesn't count -- it moves
+  // passively whenever someone else gains or loses enough elo to cross you.
+  let onlyActive = false;
+
+  const hasActivity = (code: string): boolean => {
+    const diff = data.db.codeMap[code]?.diff;
+    if (!diff) {
+      return false;
+    }
+    return diff.isNew || (diff.elo ?? 0) !== 0 || (diff.sets ?? 0) !== 0;
+  };
+
+  $: regionCodes = loaded ? subRegionMap[selectedRegion] : data.db.leaderboard;
+  $: rows = regionCodes.map((code: string, i: number) => ({ code, localRank: i + 1 }));
+  $: activeCount = rows.filter((row) => hasActivity(row.code)).length;
+  // The toggle is hidden with nothing to filter, so drop the filter with it -- otherwise
+  // switching to a region where nobody played leaves an empty table and no way out.
+  $: if (activeCount <= 0) {
+    onlyActive = false;
+  }
+  $: visibleRows = onlyActive ? rows.filter((row) => hasActivity(row.code)) : rows;
+
   // SLP launcher
   const MS_PER_DAY = 24 * 60 * 60 * 1000;
   const FREE_ACCESS_START_AT = new Date(Date.UTC(2024, 3, 15, 14, 0, 0));
@@ -196,6 +219,24 @@
       </button>
     </div>
 
+    <!-- Activity Filter -->
+    {#if activeCount > 0}
+      <button
+        class="flex flex-row items-center box-content border-2 border-primary-light text-primary-light rounded-md h-[38px] px-4"
+        class:btn-group-active={onlyActive}
+        on:click={() => (onlyActive = !onlyActive)}
+        aria-pressed={onlyActive}
+        title="Only show players whose rating or set count changed during this ranked day"
+      >
+        <span class="toggle-track" class:toggle-track-on={onlyActive}>
+          <span class="toggle-knob" class:toggle-knob-on={onlyActive}></span>
+        </span>
+        <span class="ml-2 flex flex-col items-start text-sm leading-tight text-left font-semibold">
+          <span>Filter by</span>
+          <span>Active <span class="font-normal">({activeCount})</span></span>
+        </span>
+      </button>
+    {/if}
 
     <!-- Ranked Day Countdown -->
     <div class="flex items-center justify-start bg-primary-main px-8 basis-1/3 rounded">
@@ -241,11 +282,9 @@
         </tr>
       </thead>
       <tbody>
-        {#each loaded ? subRegionMap[selectedRegion] : data.db.leaderboard as code, i (code)}
+        {#each visibleRows as { code, localRank } (code)}
           <tr class="bg-primary-main max-h-[64px]">
-            <td class="text-center"
-              ><CellRank slippi={data.db.codeMap[code]} localRank={i + 1} /></td
-            >
+            <td class="text-center"><CellRank slippi={data.db.codeMap[code]} {localRank} /></td>
             <td class=""><CellPlayer {data} {code} /></td>
             <td class=""><CellCharacters {data} {code} /></td>
             <td class=""><CellRating {data} {code} /></td>
@@ -255,6 +294,12 @@
                 losses={data.db.codeMap[code].account?.rankedNetplayProfile?.losses ?? 0}
               /></td
             >
+          </tr>
+        {:else}
+          <tr class="bg-primary-main">
+            <td colspan="5" class="text-center text-primary-light py-6">
+              Nobody has played ranked yet in this ranked day.
+            </td>
           </tr>
         {/each}
       </tbody>
@@ -277,5 +322,23 @@
 
   .btn-group-active {
     @apply bg-green/10 text-green border-primary-light;
+  }
+
+  .toggle-track {
+    @apply relative inline-block w-[32px] h-[16px] rounded-full bg-primary-light/40;
+  }
+
+  .toggle-track-on {
+    @apply bg-green/40;
+  }
+
+  .toggle-knob {
+    @apply absolute top-[2px] left-[2px] w-[12px] h-[12px] rounded-full bg-primary-light;
+    transition: transform 120ms ease-in-out;
+  }
+
+  .toggle-knob-on {
+    @apply bg-green;
+    transform: translateX(16px);
   }
 </style>

@@ -18,6 +18,13 @@ dataNewAccounts.sort(
     (b?.rankedNetplayProfile?.ratingOrdinal ?? 0) - (a?.rankedNetplayProfile?.ratingOrdinal ?? 0)
 );
 
+function setCount(slippiAccount) {
+  return (
+    (slippiAccount?.rankedNetplayProfile?.wins ?? 0) +
+    (slippiAccount?.rankedNetplayProfile?.losses ?? 0)
+  );
+}
+
 function buildCodeMapEntry(slippiAccount, slug) {
   const oldSlippiAccount = dataOldAccounts.find(
     (o) => slippiAccount.connectCode.code === o.connectCode.code
@@ -42,7 +49,10 @@ function buildCodeMapEntry(slippiAccount, slug) {
             (slippiAccount?.rankedNetplayProfile?.ratingOrdinal ?? 0) -
               (oldSlippiAccount?.rankedNetplayProfile?.ratingOrdinal ?? 0)
           )
-        : 0
+        : 0,
+      // Sets played during the window. Catches activity the elo delta misses, e.g. a
+      // win and a loss that cancel out to less than a point.
+      sets: oldSlippiAccount ? setCount(slippiAccount) - setCount(oldSlippiAccount) : 0
     },
     account: slippiAccount
   };
@@ -119,12 +129,7 @@ async function main() {
     codeMap[code] = buildCodeMapEntry(slippiAccount, null);
   }
 
-  const leaderboard = Object.keys(codeMap).filter((code) => {
-    const player = codeMap[code].account;
-    const setCount =
-      (player.rankedNetplayProfile?.wins ?? 0) + (player.rankedNetplayProfile?.losses ?? 0);
-    return setCount > 0;
-  });
+  const leaderboard = Object.keys(codeMap).filter((code) => setCount(codeMap[code].account) > 0);
   leaderboard.sort(
     (a, b) =>
       (codeMap[b].account.rankedNetplayProfile?.ratingOrdinal ?? 0) -
